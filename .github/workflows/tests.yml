@@ -1,0 +1,32 @@
+name: Unit tests
+
+on:
+  push:
+    paths:
+      - "**.py"
+  workflow_dispatch:   # manual run from the Actions tab (needed for the very first run)
+
+# If a newer push arrives on the same branch, cancel the older run still in progress.
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: python -m pip install pytest pytest-cov
+
+      - name: Run unit tests with coverage
+        run: python -m pytest -v --cov=src --cov-report=term-missing
