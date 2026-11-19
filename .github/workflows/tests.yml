@@ -2,6 +2,8 @@ name: Unit tests
 
 on:
   push:
+    # Only run when a Python file is added, changed or deleted when pushed.
+    # Pushes that only change docs, YAML, .gitignore, etc. do not start a run.
     paths:
       - "**.py"
   workflow_dispatch:   # manual run from the Actions tab (needed for the very first run)
