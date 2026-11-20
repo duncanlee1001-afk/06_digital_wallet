@@ -1,8 +1,3 @@
-"""Unit tests for src/wallet_affordability.py -> can_afford(balance_cents, price_cents).
-
-Requirement reference: Digital Wallet specification, sections 2 and 3.2.
-Test data was derived with equivalence partitioning and boundary value analysis.
-"""
 import pytest
 
 from src.wallet_affordability import can_afford
