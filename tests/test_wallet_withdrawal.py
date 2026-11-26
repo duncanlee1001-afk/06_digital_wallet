@@ -35,7 +35,7 @@ def test_valid_withdrawal_returns_remaining_balance(balance_cents, amount_cents,
     assert type(result) is int  # output must be an integer number of cents
 
 
-# --- Invalid values -> ValueError (spec 2 rule 4; spec 3.1 requirement 2) --
+# --- Invalid values -> ValueError (spec 2 rule 4; spec 3.1 requirement 2) -
 @pytest.mark.parametrize(
     "balance_cents, amount_cents",
     [

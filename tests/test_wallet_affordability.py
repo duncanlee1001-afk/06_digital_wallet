@@ -48,7 +48,7 @@ def test_negative_value_raises_value_error(balance_cents, price_cents):
         can_afford(balance_cents, price_cents)
 
 
-# --- Invalid types -> TypeError (spec 2 rules 2 and 3) -----------------------
+# --- Invalid types -> TypeError (spec 2 rules 2 and 3) ----------------------
 @pytest.mark.parametrize("bad_balance", INVALID_TYPES)
 def test_invalid_balance_type_raises_type_error(bad_balance):
     with pytest.raises(TypeError):
